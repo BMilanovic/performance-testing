@@ -1,12 +1,12 @@
 # performance-testing
 Example of a REST performance tester for diverse application servers
 
-# Outlook
+### Outlook
 
 - Add summary plots
 - Add Arquillian integration tests
 
-# Usage
+### Usage
 
 1. Run in the main directory:
 > mvn install
