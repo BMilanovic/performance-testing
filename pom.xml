@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>test.bmilan</groupId>
+    <artifactId>performance-testing</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+
+    <properties>
+        <junit.jupiter.version>5.4.0-M1</junit.jupiter.version>
+        <junit.platform.version>1.4.0-M1</junit.platform.version>
+
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M3</version>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+
+        <!-- Java EE 8 -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>8.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- JUnit 5 -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- JUnit 4 -->
+        <!--<dependency>-->
+            <!--<groupId>junit</groupId>-->
+            <!--<artifactId>junit</artifactId>-->
+            <!--<version>4.12</version>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+        <!-- Mockito -->
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>2.23.4</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Arquillian -->
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.arquillian</groupId>-->
+            <!--<artifactId>arquillian-bom</artifactId>-->
+            <!--<version>1.4.1.Final</version>-->
+            <!--<type>pom</type>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash;<dependency>&ndash;&gt;-->
+        <!--&lt;!&ndash;<groupId>org.jboss.arquillian.container</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<artifactId>arquillian-tomcat-managed-parent</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;<version>1.1.0.Final</version>&ndash;&gt;-->
+            <!--&lt;!&ndash;<type>pom</type>&ndash;&gt;-->
+        <!--&lt;!&ndash;&lt;!&ndash;<dependency>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<groupId>org.jboss.arquillian.container</groupId>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<artifactId>arquillian-openejb-embedded</artifactId>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<scope>test</scope>&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;</dependency>&ndash;&gt;-->
+        <!--<dependency>-->
+            <!--<groupId>org.jboss.arquillian.junit</groupId>-->
+            <!--<artifactId>arquillian-junit-container</artifactId>-->
+            <!--<scope>test</scope>-->
+        <!--</dependency>-->
+
+    </dependencies>
+
+</project>
