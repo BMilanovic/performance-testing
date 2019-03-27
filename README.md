@@ -8,7 +8,7 @@ Example of a REST performance tester for diverse application servers
 
 ### Usage
 
-1. Run in the main directory:
+1. Build the project with Maven. Run in the main directory:
 > mvn install
 
 2. Start an application server with EE 8 support (Wildfly 15)
