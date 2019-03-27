@@ -1,7 +1,7 @@
 # performance-testing
 Example of a REST performance tester for diverse application servers
 
-### Outlook
+### Future plans
 
 - Add summary plots
 - Add Arquillian integration tests
