@@ -5,6 +5,7 @@ Example of a REST performance tester for diverse application servers
 
 - Add summary plots
 - Add Arquillian integration tests
+- Add Executor Pool support
 
 ### Usage
 
