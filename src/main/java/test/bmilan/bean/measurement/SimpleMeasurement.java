@@ -17,10 +17,9 @@ public class SimpleMeasurement extends BasicMeasurement
     {
     }
 
-    protected SimpleMeasurement(IterationWorkerBean worker, AnalyticsBean analyticsBean)
+    protected SimpleMeasurement(IterationWorkerBean worker)
     {
         this.worker = worker;
-        super.analyticsBean = analyticsBean;
     }
 
     @PostConstruct
@@ -32,11 +31,12 @@ public class SimpleMeasurement extends BasicMeasurement
     @Override
     public void runPrimes()
     {
+        analyticsRun = new AnalyticsRun();
         for (int i = 0; i < getRepeat(); i++) {
             worker.reset();
-            analyticsBean.startMeasurement();
+            analyticsRun.startMeasurement();
             worker.generatePrimes(getNumPrimes());
-            analyticsBean.stopMeasurement();
+            analyticsRun.stopMeasurement();
         }
 
         addNewSeries("Generate primes, up to " + getNumPrimes());
@@ -45,11 +45,12 @@ public class SimpleMeasurement extends BasicMeasurement
     @Override
     public void runFibonacci()
     {
+        analyticsRun = new AnalyticsRun();
         for (int i = 0; i < getRepeat(); i++) {
             worker.reset();
-            analyticsBean.startMeasurement();
+            analyticsRun.startMeasurement();
             worker.generateFibonacci(getNumFibonacci());
-            analyticsBean.stopMeasurement();
+            analyticsRun.stopMeasurement();
         }
 
         addNewSeries("Generate fibonacci, up to " + getNumFibonacci());
@@ -58,10 +59,11 @@ public class SimpleMeasurement extends BasicMeasurement
     @Override
     public void runFactorial()
     {
+        analyticsRun = new AnalyticsRun();
         for (int i = 0; i < getRepeat(); i++) {
-            analyticsBean.startMeasurement();
+            analyticsRun.startMeasurement();
             worker.getFactorial(getNumFactorial());
-            analyticsBean.stopMeasurement();
+            analyticsRun.stopMeasurement();
         }
 
         addNewSeries("Get factorial of " + getNumFactorial());

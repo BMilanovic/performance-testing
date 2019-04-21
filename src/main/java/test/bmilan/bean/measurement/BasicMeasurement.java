@@ -1,6 +1,5 @@
 package test.bmilan.bean.measurement;
 
-import javax.ejb.EJB;
 import java.util.List;
 
 public abstract class BasicMeasurement implements Measurement
@@ -12,9 +11,7 @@ public abstract class BasicMeasurement implements Measurement
     private int numFactorial = 4;
 
     List<AnalyticsSeries> measurements;
-
-    @EJB
-    AnalyticsBean analyticsBean;
+    AnalyticsRun analyticsRun = new AnalyticsRun();
 
     public int getRepeat()
     {
@@ -63,15 +60,14 @@ public abstract class BasicMeasurement implements Measurement
 
     void addNewSeries(String name)
     {
-        analyticsBean.calculate();
+        analyticsRun.calculate();
         measurements.add( new AnalyticsSeries<>(
                                 name,
-                                analyticsBean.getRuntimes(),
-                                analyticsBean.getMean(),
-                                analyticsBean.getSigma()
+                                analyticsRun.getRuntimes(),
+                                analyticsRun.getMean(),
+                                analyticsRun.getSigma()
                             )
         );
-        analyticsBean.reset();
     }
 
 }

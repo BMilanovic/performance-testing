@@ -21,11 +21,10 @@ public class RandomMeasurement extends BasicMeasurement
     {
     }
 
-    protected RandomMeasurement(IterationWorkerBean iterationWorkerBean, RandomWorkerBean randomWorkerBean, AnalyticsBean analyticsBean)
+    protected RandomMeasurement(IterationWorkerBean iterationWorkerBean, RandomWorkerBean randomWorkerBean)
     {
         this.iterationWorkerBean = iterationWorkerBean;
         this.randomWorkerBean = randomWorkerBean;
-        super.analyticsBean = analyticsBean;
     }
 
     @PostConstruct
@@ -37,11 +36,12 @@ public class RandomMeasurement extends BasicMeasurement
     @Override
     public void runPrimes()
     {
+        analyticsRun = new AnalyticsRun();
         for (int i = 0; i < getRepeat(); i++) {
             iterationWorkerBean.reset();
-            analyticsBean.startMeasurement();
+            analyticsRun.startMeasurement();
             iterationWorkerBean.generatePrimes(randomWorkerBean.nextRandomInteger());
-            analyticsBean.stopMeasurement();
+            analyticsRun.stopMeasurement();
         }
 
         addNewSeries("Generate primes " + getRandomText());
@@ -50,11 +50,12 @@ public class RandomMeasurement extends BasicMeasurement
     @Override
     public void runFibonacci()
     {
+        analyticsRun = new AnalyticsRun();
         for (int i = 0; i < getRepeat(); i++) {
             iterationWorkerBean.reset();
-            analyticsBean.startMeasurement();
+            analyticsRun.startMeasurement();
             iterationWorkerBean.generateFibonacci(randomWorkerBean.nextRandomInteger());
-            analyticsBean.stopMeasurement();
+            analyticsRun.stopMeasurement();
         }
 
         addNewSeries("Generate fibonacci " + getRandomText());
@@ -63,10 +64,11 @@ public class RandomMeasurement extends BasicMeasurement
     @Override
     public void runFactorial()
     {
+        analyticsRun = new AnalyticsRun();
         for (int i = 0; i < getRepeat(); i++) {
-            analyticsBean.startMeasurement();
+            analyticsRun.startMeasurement();
             iterationWorkerBean.getFactorial(randomWorkerBean.nextRandomInteger());
-            analyticsBean.stopMeasurement();
+            analyticsRun.stopMeasurement();
         }
 
         addNewSeries("Get factorial " + getRandomText());

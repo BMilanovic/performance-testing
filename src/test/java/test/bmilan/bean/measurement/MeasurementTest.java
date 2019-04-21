@@ -20,7 +20,7 @@ public class MeasurementTest
 
     private IterationWorkerBean iterationWorker;
     private RandomWorkerBean randomWorker;
-    private AnalyticsBean analyticsBean;
+    private AnalyticsRun analyticsRun;
     private SimpleMeasurement simple;
     private RandomMeasurement random;
     private MeasurementFactory factory;
@@ -34,13 +34,12 @@ public class MeasurementTest
         randomWorker = new RandomWorkerBean();
         randomWorker.setup();
         prepareRandomForTest();
-        analyticsBean = new AnalyticsBean();
-        analyticsBean.setup();
+        analyticsRun = new AnalyticsRun();
 
-        simple = new SimpleMeasurement(iterationWorker, analyticsBean);
+        simple = new SimpleMeasurement(iterationWorker);
         simple.setup();
 
-        random = new RandomMeasurement(iterationWorker, randomWorker, analyticsBean);
+        random = new RandomMeasurement(iterationWorker, randomWorker);
         random.setup();
 
         factory = new MeasurementFactory(simple, random);
